@@ -1,0 +1,372 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local UI = Instance.new("ScreenGui")
+local UI_2 = Instance.new("Frame")
+local BackGround = Instance.new("Frame")
+local Container = Instance.new("Frame")
+local Padding = Instance.new("UIPadding")
+local Remington = Instance.new("TextButton")
+local M9 = Instance.new("TextButton")
+local AK = Instance.new("TextButton")
+local Nullware = Instance.new("TextButton")
+local Keycard = Instance.new("TextButton")
+local Adminscript = Instance.new("TextButton")
+local Reviz = Instance.new("TextButton")
+local InfiniteYield = Instance.new("TextButton")
+local UnderLine = Instance.new("Frame")
+local Toggle = Instance.new("TextButton")
+local a = Instance.new("TextLabel")
+
+--Properties:
+
+UI.Name = "UI"
+UI.Parent = game.Workspace
+UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+UI_2.Name = "UI"
+UI_2.Parent = UI
+UI_2.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+UI_2.BorderSizePixel = 0
+UI_2.Position = UDim2.new(0, 15, 0, 15)
+UI_2.Size = UDim2.new(0, 341, 0, 30)
+
+BackGround.Name = "BackGround"
+BackGround.Parent = UI_2
+BackGround.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+BackGround.BorderSizePixel = 0
+BackGround.Position = UDim2.new(0, 0, 1, 0)
+BackGround.Size = UDim2.new(0, 342, 0, 369)
+
+Container.Name = "Container"
+Container.Parent = UI_2
+Container.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Container.BorderSizePixel = 0
+Container.Position = UDim2.new(0, 0, 1, 0)
+Container.Size = UDim2.new(0, 342, 0, 369)
+
+Padding.Name = "Padding"
+Padding.Parent = Container
+Padding.PaddingLeft = UDim.new(0, 10)
+Padding.PaddingTop = UDim.new(0, 5)
+
+Remington.Name = "Remington"
+Remington.Parent = Container
+Remington.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Remington.Position = UDim2.new(0.0175438598, 0, 0.020833334, 0)
+Remington.Size = UDim2.new(0, 137, 0, 50)
+Remington.Font = Enum.Font.SourceSans
+Remington.Text = "Give Remington"
+Remington.TextColor3 = Color3.fromRGB(0, 0, 0)
+Remington.TextSize = 14.000
+
+M9.Name = "M9"
+M9.Parent = Container
+M9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+M9.Position = UDim2.new(0.518000007, 0, 0.0208334122, 0)
+M9.Size = UDim2.new(0, 137, 0, 50)
+M9.Font = Enum.Font.SourceSans
+M9.Text = "Give M9"
+M9.TextColor3 = Color3.fromRGB(0, 0, 0)
+M9.TextSize = 14.000
+
+AK.Name = "AK"
+AK.Parent = Container
+AK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AK.Position = UDim2.new(0.0150760226, 0, 0.210498661, 0)
+AK.Size = UDim2.new(0, 137, 0, 50)
+AK.Font = Enum.Font.SourceSans
+AK.Text = "Give AK47"
+AK.TextColor3 = Color3.fromRGB(0, 0, 0)
+AK.TextSize = 14.000
+
+Nullware.Name = "Nullware"
+Nullware.Parent = Container
+Nullware.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Nullware.Position = UDim2.new(0.0150760226, 0, 0.427097559, 0)
+Nullware.Size = UDim2.new(0, 137, 0, 50)
+Nullware.Font = Enum.Font.SourceSans
+Nullware.Text = "Nullware Reanimation"
+Nullware.TextColor3 = Color3.fromRGB(0, 0, 0)
+Nullware.TextSize = 14.000
+
+Keycard.Name = "Keycard"
+Keycard.Parent = Container
+Keycard.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Keycard.Position = UDim2.new(0.515076041, 0, 0.210498661, 0)
+Keycard.Size = UDim2.new(0, 137, 0, 50)
+Keycard.Font = Enum.Font.SourceSans
+Keycard.Text = "Give Keycard"
+Keycard.TextColor3 = Color3.fromRGB(0, 0, 0)
+Keycard.TextSize = 14.000
+
+Adminscript.Name = "Admin script"
+Adminscript.Parent = Container
+Adminscript.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Adminscript.Position = UDim2.new(0.515076041, 0, 0.427097619, 0)
+Adminscript.Size = UDim2.new(0, 137, 0, 50)
+Adminscript.Font = Enum.Font.SourceSans
+Adminscript.Text = "Admin Script"
+Adminscript.TextColor3 = Color3.fromRGB(0, 0, 0)
+Adminscript.TextSize = 14.000
+
+Reviz.Name = "Reviz"
+Reviz.Parent = Container
+Reviz.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Reviz.Position = UDim2.new(0.514999986, 0, 0.629981041, 0)
+Reviz.Size = UDim2.new(0, 137, 0, 50)
+Reviz.Font = Enum.Font.SourceSans
+Reviz.Text = "Simply Spy"
+Reviz.TextColor3 = Color3.fromRGB(0, 0, 0)
+Reviz.TextSize = 14.000
+
+InfiniteYield.Name = "Infinite Yield"
+InfiniteYield.Parent = Container
+InfiniteYield.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+InfiniteYield.Position = UDim2.new(0.0149999894, 0, 0.627542019, 0)
+InfiniteYield.Size = UDim2.new(0, 137, 0, 50)
+InfiniteYield.Font = Enum.Font.SourceSans
+InfiniteYield.Text = "Infinite Yield"
+InfiniteYield.TextColor3 = Color3.fromRGB(0, 0, 0)
+InfiniteYield.TextSize = 14.000
+
+UnderLine.Name = "UnderLine"
+UnderLine.Parent = UI_2
+UnderLine.BackgroundColor3 = Color3.fromRGB(255, 25, 25)
+UnderLine.BorderSizePixel = 0
+UnderLine.Position = UDim2.new(0, 0, 1, -1)
+UnderLine.Size = UDim2.new(1, 0, 0, 1)
+
+Toggle.Name = "Toggle"
+Toggle.Parent = UI_2
+Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Toggle.BackgroundTransparency = 1.000
+Toggle.Position = UDim2.new(0.973684192, -25, 0, 0)
+Toggle.Size = UDim2.new(0.0263157897, 25, 1, 0)
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "-"
+Toggle.TextColor3 = Color3.fromRGB(255, 0, 0)
+Toggle.TextSize = 17.000
+
+a.Name = "a"
+a.Parent = UI_2
+a.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+a.BackgroundTransparency = 1.000
+a.Size = UDim2.new(1, 0, 1, 0)
+a.Font = Enum.Font.SourceSans
+a.Text = "Prison Life GUI (Made by xyahsvr and Haloxx)"
+a.TextColor3 = Color3.fromRGB(255, 0, 4)
+a.TextSize = 17.000
+
+-- Scripts:
+
+local function GFLOP_fake_script() -- Remington.Script 
+	local script = Instance.new('Script', Remington)
+
+	function Click(mouse)
+	
+		local args = {
+			[1] = workspace.Prison_ITEMS.single:FindFirstChild("Remington 870").ITEMPICKUP
+		}
+	
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(GFLOP_fake_script)()
+local function ACGWEQY_fake_script() -- M9.Script 
+	local script = Instance.new('Script', M9)
+
+	function Click(mouse)
+	
+		local args = {
+			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("M9").ITEMPICKUP
+		}
+	
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(ACGWEQY_fake_script)()
+local function AZNPK_fake_script() -- AK.Script 
+	local script = Instance.new('Script', AK)
+
+	function Click(mouse)
+	
+		local args = {
+			[1] = workspace.Prison_ITEMS.single:FindFirstChild("AK-47").ITEMPICKUP
+		}
+	
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(AZNPK_fake_script)()
+local function PXATT_fake_script() -- Nullware.Script 
+	local script = Instance.new('Script', Nullware)
+
+	
+	function Click(mouse)
+	
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xyahsvr/poop/main/baan'),true))()
+		
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(PXATT_fake_script)()
+local function RHGFWZ_fake_script() -- Keycard.Script 
+	local script = Instance.new('Script', Keycard)
+
+	function Click(mouse)
+		
+		local args = {
+			[1] = workspace.Prison_ITEMS.single:FindFirstChild("Key card").ITEMPICKUP
+		}
+	
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(RHGFWZ_fake_script)()
+local function XMGF_fake_script() -- Adminscript.Script 
+	local script = Instance.new('Script', Adminscript)
+
+	function Click(mouse)
+	
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/XTheMasterX/Scripts/Main/PrisonLife'),true))()
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(XMGF_fake_script)()
+local function AMXQNK_fake_script() -- Reviz.function Click(mouse)
+
+--What U want :D
+
+end
+
+
+script.Parent.MouseButton1Down:connect(Click)Script 
+	local script = Instance.new('Script', Reviz)
+
+	function Click(mouse)
+	
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua", true))()
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(AMXQNK_fake_script)()
+local function GTLKWVN_fake_script() -- InfiniteYield.Script 
+	local script = Instance.new('Script', InfiniteYield)
+
+	function Click(mouse)
+	
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xyahsvr/poop/main/sus'),true))()
+	
+	end
+	
+	
+	script.Parent.MouseButton1Down:connect(Click)
+end
+coroutine.wrap(GTLKWVN_fake_script)()
+local function IGYSWV_fake_script() -- Toggle.LocalScript 
+	local script = Instance.new('LocalScript', Toggle)
+
+	local back = script.Parent.Parent.BackGround
+	local con = script.Parent.Parent.Container
+	
+	local window = {
+			count = 0;
+			toggles = {},
+			closed = false;
+		}
+		script.Parent.MouseButton1Click:connect(function()
+			window.closed = not window.closed
+			script.Parent.Text = (window.closed and "+" or "-")
+			if script.Parent.Text == "+" then
+				back:TweenSize(UDim2.new(0, 190,0, 0), "Out", "Sine", 0.5)
+				con:TweenSize(UDim2.new(0, 190,0, 0), "Out", "Sine", 0.5)
+				wait(0.1) do
+				con.Visible = false
+				end
+			else
+				back:TweenSize(UDim2.new(0, 190,0, 30), "Out", "Sine", 0.5)
+				con:TweenSize(UDim2.new(0, 190,0, 30), "Out", "Sine", 0.5)
+				wait(0.2) do
+				con.Visible = true
+				end
+				end
+			
+		end)
+	
+end
+coroutine.wrap(IGYSWV_fake_script)()
+local function WIFEFJ_fake_script() -- UI_2.LocalScript 
+	local script = Instance.new('LocalScript', UI_2)
+
+	local dragger = {}; 
+	local resizer = {};
+	
+	do
+		local mouse = game:GetService("Players").LocalPlayer:GetMouse();
+		local inputService = game:GetService('UserInputService');
+		local heartbeat = game:GetService("RunService").Heartbeat;
+		-- // credits to Ririchi / Inori for this cute drag function :)
+		function dragger.new(frame)
+		    local s, event = pcall(function()
+		    	return frame.MouseEnter
+		    end)
+	
+		    if s then
+		    	frame.Active = true;
+	
+		    	event:connect(function()
+		    		local input = frame.InputBegan:connect(function(key)
+		    			if key.UserInputType == Enum.UserInputType.MouseButton1 then
+		    				local objectPosition = Vector2.new(mouse.X - frame.AbsolutePosition.X, mouse.Y - frame.AbsolutePosition.Y);
+		    				while heartbeat:wait() and inputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
+		    					frame:TweenPosition(UDim2.new(0, mouse.X - objectPosition.X + (frame.Size.X.Offset * frame.AnchorPoint.X), 0, mouse.Y - objectPosition.Y + (frame.Size.Y.Offset * frame.AnchorPoint.Y)), 'Out', 'Quad', 0.1, true);
+		    				end
+		    			end
+		    		end)
+	
+		    		local leave;
+		    		leave = frame.MouseLeave:connect(function()
+		    			input:disconnect();
+		    			leave:disconnect();
+		    		end)
+		    	end)
+		    end
+		end
+		
+		function resizer.new(p, s)
+			p:GetPropertyChangedSignal('AbsoluteSize'):connect(function()
+				s.Size = UDim2.new(s.Size.X.Scale, s.Size.X.Offset, s.Size.Y.Scale, p.AbsoluteSize.Y);
+			end)
+		end
+	end
+	script.Parent.Active = true
+	script.Parent.Draggable = true
+end
+coroutine.wrap(WIFEFJ_fake_script)()
