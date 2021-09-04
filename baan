@@ -180,6 +180,8 @@ b:Label("Game",{
         local p = game:GetService("Players").LocalPlayer
         ts:Teleport(game.PlaceId, p)
     end)
+    
+    b:DestroyGui()
 
     local b = w:CreateFolder("Teleports")
     b:Label("Locations",{
