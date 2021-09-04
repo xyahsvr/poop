@@ -1,260 +1,236 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
-local UI = Instance.new("ScreenGui")
-local UI_2 = Instance.new("Frame")
-local BackGround = Instance.new("Frame")
-local Container = Instance.new("Frame")
-local Padding = Instance.new("UIPadding")
-local Remington = Instance.new("TextButton")
-local M9 = Instance.new("TextButton")
-local AK = Instance.new("TextButton")
-local Nullware = Instance.new("TextButton")
-local Keycard = Instance.new("TextButton")
-local Adminscript = Instance.new("TextButton")
-local Reviz = Instance.new("TextButton")
-local InfiniteYield = Instance.new("TextButton")
-
---Properties:
-
-UI.Name = "UI"
-UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-UI_2.Name = "UI"
-UI_2.Parent = UI
-UI_2.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-UI_2.BorderSizePixel = 0
-UI_2.Position = UDim2.new(0, 32, 0, 15)
-UI_2.Size = UDim2.new(0, 341, 0, 30)
-
-BackGround.Name = "BackGround"
-BackGround.Parent = UI_2
-BackGround.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-BackGround.BorderSizePixel = 0
-BackGround.Position = UDim2.new(0, 0, 1, 0)
-BackGround.Size = UDim2.new(0, 342, 0, 369)
-
-Container.Name = "Container"
-Container.Parent = UI_2
-Container.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-Container.BorderSizePixel = 0
-Container.Position = UDim2.new(0, 0, 1, 0)
-Container.Size = UDim2.new(0, 342, 0, 369)
-
-Padding.Name = "Padding"
-Padding.Parent = Container
-Padding.PaddingLeft = UDim.new(0, 10)
-Padding.PaddingTop = UDim.new(0, 5)
-
-Remington.Name = "Remington"
-Remington.Parent = Container
-Remington.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Remington.Position = UDim2.new(0.0175438598, 0, 0.020833334, 0)
-Remington.Size = UDim2.new(0, 137, 0, 50)
-Remington.Font = Enum.Font.SourceSans
-Remington.Text = "Give Remington"
-Remington.TextColor3 = Color3.fromRGB(0, 0, 0)
-Remington.TextSize = 14.000
-
-M9.Name = "M9"
-M9.Parent = Container
-M9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-M9.Position = UDim2.new(0.518000007, 0, 0.0208334122, 0)
-M9.Size = UDim2.new(0, 137, 0, 50)
-M9.Font = Enum.Font.SourceSans
-M9.Text = "Give M9"
-M9.TextColor3 = Color3.fromRGB(0, 0, 0)
-M9.TextSize = 14.000
-
-AK.Name = "AK"
-AK.Parent = Container
-AK.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-AK.Position = UDim2.new(0.0150760226, 0, 0.210498661, 0)
-AK.Size = UDim2.new(0, 137, 0, 50)
-AK.Font = Enum.Font.SourceSans
-AK.Text = "Give AK47"
-AK.TextColor3 = Color3.fromRGB(0, 0, 0)
-AK.TextSize = 14.000
-
-Nullware.Name = "Nullware"
-Nullware.Parent = Container
-Nullware.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Nullware.Position = UDim2.new(0.0150760226, 0, 0.427097559, 0)
-Nullware.Size = UDim2.new(0, 137, 0, 50)
-Nullware.Font = Enum.Font.SourceSans
-Nullware.Text = "Nullware Reanimation"
-Nullware.TextColor3 = Color3.fromRGB(0, 0, 0)
-Nullware.TextSize = 14.000
-
-Keycard.Name = "Keycard"
-Keycard.Parent = Container
-Keycard.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Keycard.Position = UDim2.new(0.515076041, 0, 0.210498661, 0)
-Keycard.Size = UDim2.new(0, 137, 0, 50)
-Keycard.Font = Enum.Font.SourceSans
-Keycard.Text = "Give Keycard"
-Keycard.TextColor3 = Color3.fromRGB(0, 0, 0)
-Keycard.TextSize = 14.000
-
-Adminscript.Name = "Admin script"
-Adminscript.Parent = Container
-Adminscript.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Adminscript.Position = UDim2.new(0.515076041, 0, 0.427097619, 0)
-Adminscript.Size = UDim2.new(0, 137, 0, 50)
-Adminscript.Font = Enum.Font.SourceSans
-Adminscript.Text = "Admin Script"
-Adminscript.TextColor3 = Color3.fromRGB(0, 0, 0)
-Adminscript.TextSize = 14.000
-
-Reviz.Name = "Reviz"
-Reviz.Parent = Container
-Reviz.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Reviz.Position = UDim2.new(0.514999986, 0, 0.629981041, 0)
-Reviz.Size = UDim2.new(0, 137, 0, 50)
-Reviz.Font = Enum.Font.SourceSans
-Reviz.Text = "Simply Spy"
-Reviz.TextColor3 = Color3.fromRGB(0, 0, 0)
-Reviz.TextSize = 14.000
-
-InfiniteYield.Name = "Infinite Yield"
-InfiniteYield.Parent = Container
-InfiniteYield.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-InfiniteYield.Position = UDim2.new(0.0149999894, 0, 0.627542019, 0)
-InfiniteYield.Size = UDim2.new(0, 137, 0, 50)
-InfiniteYield.Font = Enum.Font.SourceSans
-InfiniteYield.Text = "Infinite Yield"
-InfiniteYield.TextColor3 = Color3.fromRGB(0, 0, 0)
-InfiniteYield.TextSize = 14.000
-
--- Scripts:
-
-local function XQEEWAC_fake_script() -- Remington.Script 
-	local script = Instance.new('Script', Remington)
-
-	function Click(mouse)
-	
-		local args = {
-			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("Remington 870").ITEMPICKUP
-		}
-	
-		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(XQEEWAC_fake_script)()
-local function IDBCT_fake_script() -- M9.Script 
-	local script = Instance.new('Script', M9)
-
-	function Click(mouse)
-	
-		local args = {
-			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("M9").ITEMPICKUP
-		}
-	
-		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(IDBCT_fake_script)()
-local function INTBD_fake_script() -- AK.Script 
-	local script = Instance.new('Script', AK)
-
-	function Click(mouse)
-	
-		local args = {
-			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("AK-47").ITEMPICKUP
-		}
-	
-		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(INTBD_fake_script)()
-local function EADD_fake_script() -- Nullware.Script 
-	local script = Instance.new('Script', Nullware)
-
-	function Click(mouse)
-		
-		loadstring(game:HttpGetAsync("https://gist.githubusercontent.com/M6HqVBcddw2qaN4s/dabc2500988785fbec1ce7c7aaee105d/raw/hVQJXfF4sR6yqSfJ"))()
-		
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(EADD_fake_script)()
-local function FLUP_fake_script() -- Keycard.Script 
-	local script = Instance.new('Script', Keycard)
-
-	function Click(mouse)
-		
-		local weapons = {"Key card"}
-		for i, v in pairs(game.Workspace["Prison_ITEMS"].single:GetChildren()) do
-			for j, k in pairs(weapons) do
-				if v.Name == k then
-					v:MoveTo(game.Players.LocalPlayer.Character.Torso.Position)
-				end
-			end
-		end
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(FLUP_fake_script)()
-local function INKJ_fake_script() -- Adminscript.Script 
-	local script = Instance.new('Script', Adminscript)
-
-	function Click(mouse)
-	
-		loadstring(game:HttpGet(('https://raw.githubusercontent.com/XTheMasterX/Scripts/Main/PrisonLife'),true))()
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
-end
-coroutine.wrap(INKJ_fake_script)()
-local function BZBUAUJ_fake_script() -- Reviz.function Click(mouse)
-
-end
-
-
-script.Parent.MouseButton1Down:connect(Click)
-	local script = Instance.new('Script', Reviz)
-
-	function Click(mouse)
-		
-	    loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua", true))()
-
+if game.PlaceId == 155615604 then
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xvhHaloxx/lua/main/KavoUI"))()
+    local Window = Library.CreateLib("PHub (Edition Z)", "Synapse")
+    
+    local function callback(text)
+    if text == "Yes" then
+	print("User said yes")
+    elseif text == "No" then
+	print("User said no")
     end
-
-	
-	script.Parent.MouseButton1Down:connect(Click)
-coroutine.wrap(BZBUAUJ_fake_script)()
-local function PRCLAVH_fake_script() -- InfiniteYield.Script 
-	local script = Instance.new('Script', InfiniteYield)
-
-	function Click(mouse)
-	
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/xyahsvr/poop/main/sus", true))()
-	
-	end
-	
-	
-	script.Parent.MouseButton1Down:connect(Click)
 end
-coroutine.wrap(PRCLAVH_fake_script)()
+
+local bindableFunction= Instance.new("BindableFunction")
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Done Loading!";
+    Text = "Enjoy!";
+    Icon = "rbxthumb://type=Asset&id=4914902918&w=150&h=150";
+    Duration = "30";
+    callbakc = bindableFunction;
+    Button1 = "Close";
+})
+-- SCRIPTS
+    local Main = Window:NewTab("Scripts")
+      local MainSection1 = Main:NewSection("Scripts:")
+      MainSection1:NewButton("Infinite Yield", "FE Admin", function(v)
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))()
+      end)
+    MainSection1:NewButton("DarkDex", "Explore the Games Properties", function()
+        loadstring(game:GetHttp("https://pastebin.com/raw/zMrZEyJk"))()
+    end)
+     MainSection1:NewButton("Nullware", "Reanimation/Dances", function(v)
+         loadstring(game:HttpGetAsync("https://gist.githubusercontent.com/M6HqVBcddw2qaN4s/dabc2500988785fbec1ce7c7aaee105d/raw/hVQJXfF4sR6yqSfJ"))()
+     end)
+     MainSection1:NewButton("Septex Admin", "Prison Life Admin", function(v)
+         loadstring(game:HttpGet(('https://raw.githubusercontent.com/XTheMasterX/Scripts/Main/PrisonLife'),true))()
+     end)
+     MainSection1:NewButton("SimpleSpy", "View fired events happing in the game", function(v)
+     loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+     end)
+         
+       
+--LOCAL
+    local Main = Window:NewTab("LocalPlayer")
+    local MainSection1 = Main:NewSection("Movement")
+    
+     MainSection1:NewSlider("Walkspeed", "Changes the walkspeed", 250, 16, function(v)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+     end)
+     MainSection1:NewSlider("Jumppower", "Changes the jumppower", 250, 50, function(v)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+    end)
+    
+--GUNS
+    local Main = Window:NewTab("Guns")
+    local MainSection1 = Main:NewSection("Guns")
+    local MainSection2 = Main:NewSection("Gun Mods")
+     MainSection1:NewDropdown("Give Gun", "Gives the localplayer a gun", {"M9", "Remington 870", "AK-47"}, function(v)
+        local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver[v].ITEMPICKUP
+        local Event = game:GetService("Workspace").Remote.ItemHandler
+        Event:InvokeServer(A_1)
+     end)
+     
+     MainSection2:NewDropdown("mod yo dam gun", "Makes the gun op", {"M9", "Remington 870", "AK-47"}, function(v)
+        local module = nil
+        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v) then
+            module = require(game:GetService("Players").LocalPlayer.Backpack[v].GunStates)
+        elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(v) then
+            module = require(game:GetService("Players").LocalPlayer.Character[v].GunStates)
+        end
+        if module ~= nil then
+            module["MaxAmmo"] = math.huge
+            module["CurrentAmmo"] = math.huge
+            module["StoredAmmo"] = math.huge
+            module["FireRate"] = 0.000001
+            module["Spread"] = 0
+            module["Range"] = math.huge
+            module["Bullets"] = 10
+            module["ReloadTime"] = 0.000001
+            module["AutoFire"] = true
+        end
+    end)
+
+--SETTINGS
+    local Main = Window:NewTab("Settings")
+    local MainSection1 = Main:NewSection("Misc")
+    MainSection1:NewButton("God Mode", "Become Invinsible", function(v)
+        local player = game.Players.LocalPlayer
+    if player.Character then
+    if player.Character:FindFirstChild("Humanoid") then
+    player.Character.Humanoid.Name = "1"
+    end
+    local l = player.Character["1"]:Clone()
+    l.Parent = player.Character
+    l.Name = "Humanoid"; wait(0.1)
+    player.Character["1"]:Destroy()
+    workspace.CurrentCamera.CameraSubject = player.Character.Humanoid
+    player.Character.Animate.Disabled = true; wait(0.1)
+    player.Character.Animate.Disabled = false
+    end
+    print("finished.")
+    end)
+    MainSection1:NewButton("Rejoin Game", "Rejoins the same server", function(v)
+        local ts = game:GetService("TeleportService")
+        local p = game:GetService("Players").LocalPlayer
+        ts:Teleport(game.PlaceId, p)
+    end)
+    MainSection1:NewButton("No more because im bad at coding :(", "im stinky"
+--Credits
+   )local Main = Window:NewTab("Credits")
+    local MainSection1 = Main:NewSection("Coders")
+    MainSection1:NewButton("xyahsvr and haloxx made this", "xyahsvr and haloxx coded this")
+    MainSection1:NewButton("(gui is from youtube turtorial lol)", "xyahsvr and haloxx didnt make this GUI")
+    local MainSection1 = Main:NewSection("Supported Games (More coming soon)"
+        )MainSection1:NewButton("Prison Life", "gaem")
+        MainSection1:NewButton("Big Paintball", "gaem")
+        MainSection1:NewButton("Arsenal", "gaem")
+elseif game.PlaceId == 3527629287 then
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xvhHaloxx/lua/main/KavoUI"))()
+    local Window = Library.CreateLib("PHub (Edition Z)", "Synapse")
+    
+       local function callback(text)
+    if text == "Yes" then
+	print("User said yes")
+    elseif text == "No" then
+	print("User said no")
+    end
+end
+
+local bindableFunction= Instance.new("BindableFunction")
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Done Loading!";
+    Text = "Enjoy!";
+    Icon = "rbxthumb://type=Asset&id=4914902918&w=150&h=150";
+    Duration = "30";
+    callbakc = bindableFunction;
+    Button1 = "Close";
+})
+--SCRIPTS
+local Main = Window:NewTab("Scripts")
+local MainSection1 = Main:NewSection("Scripts:")
+      MainSection1:NewButton("Infinite Yield", "FE Admin", function(v)
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))()
+      end)
+    MainSection1:NewButton("DarkDex", "Explore the Games Properties", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/zMrZEyJk"))()
+    end)
+    MainSection1:NewButton("SimpleSpy", "View fired events happing in the game", function(v)
+     loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+    end)
+    MainSection1:NewButton("OP GUI", "aimbot, silent aim, esp, auto nuke, etc.", function(v)
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/radjahfromdiscord/iNEXT/main/source"))()
+ end)
+--SETTINGS
+local Main = Window:NewTab("Settings")
+local MainSection1 = Main:NewSection("Misc")
+    MainSection1:NewButton("Rejoin Game", "Rejoins the same server", function(v)
+        local ts = game:GetService("TeleportService")
+        local p = game:GetService("Players").LocalPlayer
+        ts:Teleport(game.PlaceId, p)
+    end)
+
+--Credits
+
+local Main = Window:NewTab("Credits")
+    local MainSection1 = Main:NewSection("Coders")
+    MainSection1:NewButton("xyahsvr and haloxx made this", "xyahsvr and haloxx coded this")
+    MainSection1:NewButton("(gui is from youtube turtorial lol)", "xyahsvr and haloxx didnt make this GUI")
+    local MainSection1 = Main:NewSection("Supported Games (More coming soon)"
+        )MainSection1:NewButton("Prison Life", "gaem")
+        MainSection1:NewButton("Big Paintball", "gaem")
+        MainSection1:NewButton("Arsenal", "gaem")
+
+else if game.PlaceId == 286090429 then
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xvhHaloxx/lua/main/KavoUI"))()
+    local Window = Library.CreateLib("PHub (Edition Z)", "Synapse")
+    
+       local function callback(text)
+    if text == "Yes" then
+	print("User said yes")
+    elseif text == "No" then
+	print("User said no")
+    end
+end
+
+local bindableFunction= Instance.new("BindableFunction")
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Done Loading!";
+    Text = "Enjoy!";
+    Icon = "rbxthumb://type=Asset&id=4914902918&w=150&h=150";
+    Duration = "30";
+    callbakc = bindableFunction;
+    Button1 = "Close";
+})
+--SCRIPTS
+local Main = Window:NewTab("Scripts")
+local MainSection1 = Main:NewSection("Scripts:")
+MainSection1:NewButton("Infinite Yield", "FE Admin", function(v)
+          loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))()
+      end)
+    MainSection1:NewButton("DarkDex", "Explore the Games Properties", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/zMrZEyJk"))()
+    end)
+    MainSection1:NewButton("SimpleSpy", "View fired events happing in the game", function(v)
+     loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+    end)
+    MainSection1:NewButton("Dark Hub", "aimbot, silent aim, esp, kill all, etc.", function(v)
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init", true))()
+    end)
+    MainSection1:NewButton("Owl Hub (Krnl and Paid Exploits only)", "this is a old script and it is discontinued", function(v)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
+end)
+loadstring(game:HttpGet("https://pastebin.com/raw/kvpwyQRT"))()
+--SETTINGS
+local Main = Window:NewTab("Settings")
+local MainSection1 = Main:NewSection("Misc")
+    MainSection1:NewButton("Rejoin Game", "Rejoins the same server", function(v)
+        local ts = game:GetService("TeleportService")
+        local p = game:GetService("Players").LocalPlayer
+        ts:Teleport(game.PlaceId, p)
+    end)
+
+--Credits
+
+local Main = Window:NewTab("Credits")
+    local MainSection1 = Main:NewSection("Coders")
+    MainSection1:NewButton("xyahsvr and haloxx made this", "xyahsvr and haloxx coded this")
+    MainSection1:NewButton("(gui is from youtube turtorial lol)", "xyahsvr and haloxx didnt make this GUI")
+    local MainSection1 = Main:NewSection("Supported Games (More coming soon)"
+        )MainSection1:NewButton("Prison Life", "gaem")
+        MainSection1:NewButton("Big Paintball", "gaem")
+        MainSection1:NewButton("Arsenal", "gaem")
+      end
+   end
