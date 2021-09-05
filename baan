@@ -14,6 +14,24 @@ _G.BindColor = Color3.fromRGB(36, 36, 36)
 
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
 
+local function callback(text)
+    if text == "Yes" then
+	print("User said yes")
+    elseif text == "No" then
+	print("User said no")
+    end
+end
+
+local bindableFunction= Instance.new("BindableFunction")
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Done Loading!";
+    Text = "Enjoy!";
+    Icon = "rbxthumb://type=Asset&id=4914902918&w=150&h=150";
+    Duration = "30";
+    callbakc = bindableFunction;
+    Button1 = "Close";
+})
 --[[
 --------------------------------------------------------------------------------
 ================================================================================
