@@ -1,3 +1,16 @@
+--[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+                COLOR CODES
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+
 _G.MainColor = Color3.fromRGB(35, 35, 35)
 _G.SecondaryColor = Color3.fromRGB(50, 50, 50)
 _G.TertiaryColor = Color3.fromRGB(65, 65, 65)
@@ -11,10 +24,20 @@ _G.ToggleColor = Color3.fromRGB(228, 203, 226)
 _G.DraggerCircleColor = Color3.fromRGB(0, 0, 0)
 _G.BindColor = Color3.fromRGB(36, 36, 36)
 
+--[[
+--------------------------------------------------------------------------------
+================================================================================
 
-local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
 
-local function callback(text)
+                NOTIFICATION
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+
+    local function callback(text)
     if text == "Yes" then
 	print("User said yes")
     elseif text == "No" then
@@ -32,6 +55,23 @@ game.StarterGui:SetCore("SendNotification", {
     callbakc = bindableFunction;
     Button1 = "Close";
 })
+
+
+--[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+                GUI LIBRARY
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
+
 --[[
 --------------------------------------------------------------------------------
 ================================================================================
@@ -47,14 +87,27 @@ game.StarterGui:SetCore("SendNotification", {
 
 if game.PlaceId == 155615604 then
     
-local w = library:CreateWindow("PHubZ v2 - Prison Life") 
+local w = library:CreateWindow("PHub v2 - Prison Life") 
 
 local b = w:CreateFolder("Scripts")
 
+local player = game.Players.LocalPlayer
+
+--[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+                SCRIPTS
+
+ 
+================================================================================
+--------------------------------------------------------------------------------
+]]--
 
 
 b:Label("Scripts",{
-    TextSize = 25; 
+    TextSize = 22; 
     TextColor = Color3.fromRGB(228, 203, 226); 
     BgColor = Color3.fromRGB(69,69,69); 
     
@@ -82,12 +135,130 @@ b:Button("SimpleSpy",function(bool)
 end)
 
 
+--[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+                LOCAL PLAYER
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+
+local b = w:CreateFolder("LocalPlayer")
+b:Label("Movement",{
+    TextSize = 22; 
+    TextColor = Color3.fromRGB(228, 203, 226); 
+    BgColor = Color3.fromRGB(69,69,69); 
+    
+})
+    
+    b:Slider("Walkspeed",{
+    min = 0; 
+    max = 250; 
+    precise = false;
+},function(value)
+        local player = game.Players.LocalPlayer
+        player.WalkSpeed = value
+end)
+b:Slider("JumpPower",{
+    min = 0;
+    max = 250;
+    precise = false;
+},function(value)
+    local player = game.Players.LocalPlayer
+    player.JumpPower = value
+end)
+
+b:Button("Heal Self",function()
+   while wait() do
+      game.Players.LocalPlayer.Character.Humanoid.Health = game.Players.LocalPlayer.Character.Humanoid.Health + 999
+      end
+end)
+
+b:Bind("Heal Self Bind",Enum.KeyCode.V,function()
+   player.Health = player.MaxHealth;
+end)
+
+
+--[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+                TEAM SWAP
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+local b = w:CreateFolder("Team Changer")
+b:Label("Teams",{
+    TextSize = 22; 
+    TextColor = Color3.fromRGB(228, 203, 226); 
+    BgColor = Color3.fromRGB(69,69,69); 
+    
+})
+
+b:Button("Guards",function()
+local args = {
+   [1] = "Bright blue"
+}
+
+workspace.Remote.TeamEvent:FireServer(unpack(args))
+
+      
+end)
+
+b:Button("Inmate",function()
+      local args = {
+         [1] = "Bright orange"
+      }
+      workspace.Remote.TeamEvent:FireServer(unpack(args))
+      
+end)
+
+b:Button("Neutral (why)",function()
+      local args = {
+         [1] = "Medium stone grey"
+      }
+      
+      workspace.Remote.TeamEvent:FireServer(unpack(args))
+      
+end)
+
+b:Button("Criminal",function()
+        local weld02 = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-919.958, 95.327, 2138.189)
+        wait(0.075)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(weld02)
+      
+end)
+
+
+
+
+--[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+                GUNS / GUN MODS
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+
 local b = w:CreateFolder("Gun Spawner/Mods")
 
---1276
-
 b:Label("Guns",{
-    TextSize = 25; 
+    TextSize = 22; 
     TextColor = Color3.fromRGB(228, 203, 226); 
     BgColor = Color3.fromRGB(69,69,69); 
     
@@ -100,7 +271,7 @@ b:Dropdown("Gun Spawner (click ->)",{"AK-47","Remington 870","M9"},false,functio
      end)
 
      b:Label("Gun Mods",{
-        TextSize = 25; 
+        TextSize = 22; 
         TextColor = Color3.fromRGB(228, 203, 226); 
         BgColor = Color3.fromRGB(69,69,69); 
         
@@ -116,7 +287,7 @@ b:Dropdown("Gun Spawner (click ->)",{"AK-47","Remington 870","M9"},false,functio
             module["MaxAmmo"] = math.huge
             module["CurrentAmmo"] = math.huge
             module["StoredAmmo"] = math.huge
-            module["FireRate"] = 0.05
+            module["FireRate"] = 0.15
             module["Spread"] = 0
             module["Range"] = math.huge
             module["Bullets"] = 1
@@ -125,41 +296,99 @@ b:Dropdown("Gun Spawner (click ->)",{"AK-47","Remington 870","M9"},false,functio
         end
     end)
 
---235982562
-local b = w:CreateFolder("LocalPlayer")
-b:Label("Movement",{
-    TextSize = 25; 
-    TextColor = Color3.fromRGB(228, 203, 226); 
-    BgColor = Color3.fromRGB(69,69,69); 
-    
-}) 
-    
-    b:Slider("Walkspeed",{
-    min = 0; 
-    max = 250; 
-    precise = false;
-},function(value)
-        local player = game.Players.LocalPlayer
-        player.Character.Humanoid.WalkSpeed = value
-end)
-b:Slider("JumpPower",{
-    min = 0;
-    max = 250;
-    precise = false;
-},function(value)
-    local player = game.Players.LocalPlayer
-        player.Character.Humanoid.JumpPower = value
-end)
-b:Button("TP Out of Prison", function()
-    local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-    player.CFrame = CFrame.new(281.068054, 70, 2196.6001)
-end)
 
-    --35y46jhn
+        --[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+               TELEPORTS
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+
+local b = w:CreateFolder("Teleports")
+b:Label("Locations",{
+    TextSize = 22; 
+    TextColor = Color3.fromRGB(228, 203, 226); 
+    BgColor = Color3.fromRGB(69,69,69);})
+
+    b:Button("Prison Entrance", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(505, 125, 2330)
+  end)
+  
+  b:Button("Grocery Shop", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-415, 56, 1750)
+  end)
+  
+  b:Button("Car Spawn", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-200, 56, 1880)
+  end)
+  
+  b:Button("Prison", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(777, 96, 2460)
+  end)
+  
+  b:Button("Secret Area", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-920, 96, 1990)
+  end)
+  
+  b:Button("Gas Station", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-520, 56, 1660)
+  end)
+  
+  b:Button("Criminal Base", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-910, 96, 2060)
+  end)
+  
+  b:Button("House Area", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-230, 56, 2520)
+  end)
+  
+  b:Button("Police Cars", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(615, 101, 2515)
+  end)
+  
+  b:Button("Police Area", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(855, 101, 2297)
+  end)
+  
+  b:Button("Prison Cells", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(915, 100, 2450)
+  end)
+
+
+
+--[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+                OPTIONS
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
 
 local b = w:CreateFolder("Options")
 b:Label("Player",{
-    TextSize = 25; 
+    TextSize = 22; 
     TextColor = Color3.fromRGB(228, 203, 226); 
     BgColor = Color3.fromRGB(69,69,69); 
     
@@ -187,7 +416,7 @@ b:Label("Player",{
 	nHuman.Health = nHuman.MaxHealth
 end)
 b:Label("Game",{
-    TextSize = 25; 
+    TextSize = 22; 
     TextColor = Color3.fromRGB(228, 203, 226); 
     BgColor = Color3.fromRGB(69,69,69);
  
@@ -198,79 +427,223 @@ b:Label("Game",{
         local p = game:GetService("Players").LocalPlayer
         ts:Teleport(game.PlaceId, p)
     end)
-    
-    b:DestroyGui()
 
-    local b = w:CreateFolder("Teleports")
-    b:Label("Locations",{
-        TextSize = 21; 
-        TextColor = Color3.fromRGB(228, 203, 226); 
-        BgColor = Color3.fromRGB(69,69,69);})
-            b:Button("Prison Entrance", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(505, 125, 2330)
-            end)
-            
-            b:Button("Grocery Shop", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(-415, 56, 1750)
-            end)
-            
-            b:Button("Car Spawn", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(-200, 56, 1880)
-            end)
-            
-            b:Button("Prison", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(777, 96, 2460)
-            end)
-            
-            b:Button("Secret Area", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(-920, 96, 1990)
-            end)
-            
-            b:Button("Gas Station", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(-520, 56, 1660)
-            end)
-            
-            b:Button("Criminal Base", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(-910, 96, 2060)
-            end)
-            
-            b:Button("House Area", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(-230, 56, 2520)
-            end)
-            
-            b:Button("Police Cars", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(615, 101, 2515)
-            end)
-            
-            b:Button("Police Area", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(855, 101, 2297)
-            end)
-            
-            b:Button("Prison Cells", function()
-                local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
-                player.CFrame = CFrame.new(915, 100, 2450)
-            end)
+    b:DestroyGui();
+
+
+
+
+
+                --[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+               CREDITS
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+
             local b = w:CreateFolder("Credits")
             b:Label("Gui Creator",{
-                    TextSize = 21; 
+                    TextSize = 22; 
                     TextColor = Color3.fromRGB(228, 203, 226); 
                     BgColor = Color3.fromRGB(69,69,69);})
                         b:Button("Aika", function(bool)
                         end)
             b:Label("Coders",{
-                    TextSize = 21; 
+                    TextSize = 22; 
                     TextColor = Color3.fromRGB(228, 203, 226); 
                     BgColor = Color3.fromRGB(69,69,69);})
                 b:Button("xyahsvr and haloxx", function(bool)
                     end) 
-                 end
+
+
+                --[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+               ARSENAL
+               SCRIPT
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+elseif game.PlaceId == 286090429 then
+
+    local w = library:CreateWindow("PHub v2 - Arsenal") 
+
+    local b = w:CreateFolder("Scripts")
+
+    b:Label("Scripts",{
+        TextSize = 22; 
+        TextColor = Color3.fromRGB(228, 203, 226); 
+        BgColor = Color3.fromRGB(69,69,69);})
+    b:Button("Dark Hub",function(bool)
+        shared.toggle = bool
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init", true))()
+    end)
+    b:Button("V.G Hub (Has all)",function(bool)
+        shared.toggle = bool
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+    end)
+    b:Button("Infinite Yield",function(bool)
+        shared.toggle = bool
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", true))()
+    end)
+    b:Button("Dark Dex",function(bool)
+        shared.toggle = bool
+        loadstring(game:HttpGetAsync("https://pastebin.com/raw/fPP8bZ8Z"))()
+    end)
+
+--[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+               CREDITS
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+local b = w:CreateFolder("Credits")
+
+b:Label("Gui Creator",{
+        TextSize = 22; 
+        TextColor = Color3.fromRGB(228, 203, 226); 
+        BgColor = Color3.fromRGB(69,69,69);})
+b:Button("Aika", function(bool)
+        end)
+        
+b:Label("Coders",{
+        TextSize = 22; 
+        TextColor = Color3.fromRGB(228, 203, 226); 
+        BgColor = Color3.fromRGB(69,69,69);})
+b:Button("xyahsvr and haloxx", function(bool)
+        end) 
+
+
+
+    --[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+               LEGENDS OF SPEED SCRIPTS
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+
+elseif game.PlaceId == 3101667897 then
+
+local w = library:CreateWindow("PHub v2 - Legends of speed") 
+
+local b = w:CreateFolder("Scripts")
+
+b:Label("WE DIDNT TRY JUST USE THIS",{
+    TextSize = 18; 
+    TextColor = Color3.fromRGB(228, 203, 226); 
+    BgColor = Color3.fromRGB(69,69,69);})
+
+b:Button("V.G Hub (pls use)",function(bool)
+    shared.toggle = bool
+loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+
+
+end)
+
+    --[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+               LUMBER TYCOON 2 VARIABLES
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+elseif game.PlaceId == 13822889 then 
+
+
+    local w = library:CreateWindow("PHub v2 - Lumber") 
+
+    local b = w:CreateFolder("Scripts")
+    --[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+               SCRIPTS
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+    
+    b:Label("Scripts",{
+        TextSize = 18; 
+        TextColor = Color3.fromRGB(228, 203, 226); 
+        BgColor = Color3.fromRGB(69,69,69);})
+    
+
+
+
+    b:Button("Everything",function(bool)
+        shared.toggle = bool
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/xyahsvr/poop/main/sus')()
+    end)
+
+
+
+
+    b:Label("Money Dupe",{
+        TextSize = 18; 
+        TextColor = Color3.fromRGB(228, 203, 226); 
+        BgColor = Color3.fromRGB(69,69,69);})
+        b:Button("Dupe",function(bool)
+            shared.toggle = bool
+            loadstring(game:HttpGet'https://pastebin.com/raw/hnVtRcyb')()
+
+
+--[[
+--------------------------------------------------------------------------------
+================================================================================
+
+
+               CREDITS
+
+
+================================================================================
+--------------------------------------------------------------------------------
+]]--
+
+local b = w:CreateFolder("Credits")
+
+b:Label("Gui Creator",{
+        TextSize = 22; 
+        TextColor = Color3.fromRGB(228, 203, 226); 
+        BgColor = Color3.fromRGB(69,69,69);})
+b:Button("Aika", function(bool)
+        end)
+        
+b:Label("Coders",{
+        TextSize = 22; 
+        TextColor = Color3.fromRGB(228, 203, 226); 
+        BgColor = Color3.fromRGB(69,69,69);})
+b:Button("xyahsvr and haloxx", function(bool)
+        end) 
+
+    end)
+    end
