@@ -1,0 +1,326 @@
+-- my one - https://raw.githubusercontent.com/xvhHaloxx/Luxware-UI-Library/main/library.lua
+-- Other guys one - https://github.com/xHeptc/Luxware-UI-Library/blob/main/Source.lua
+-- xyahsvr helped :)
+
+-- Library
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xvhHaloxx/Luxware-UI-Library/main/library.lua"))()
+
+
+-- Other
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+local localHuman = localPlayer.Character.Humanoid
+local localHumanRoot = localPlayer.Character.HumanoidRootPart
+
+local userId = localPlayer.UserId
+local thumbType = Enum.ThumbnailType.HeadShot
+local thumbSize = Enum.ThumbnailSize.Size48x48
+local imageContent, imageIsReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+
+--
+-- Scripts
+--
+local scripts = {
+	['Infinite Yield'] = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
+	['Dark Dex'] = "https://pastebin.com/raw/fPP8bZ8Z",
+	['Simple Spy'] = "https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua",
+	['Nullware'] = "https://pastebin.com/raw/9uWEY07Q",
+    ['Septex Admin'] = "https://raw.githubusercontent.com/XTheMasterX/Scripts/Main/PrisonLife"
+}
+
+--
+-- Place IDS
+--
+local placeIds = {
+	['Prison Life'] = 155615604
+}
+
+--
+-- Game Functions
+--
+function PrisonLife()
+	local window = library.CreateWindow("Halo Hub", imageContent)
+-- Tabs
+	local playerTab = window:Tab("Player")
+	local scriptsTab = window:Tab("Scripts")
+	local gunsTab = window:Tab("Guns")
+	local optionsTab = window:Tab("Options")
+	
+-- Sections
+
+-- Player Tab
+	local playerPhysicalSection = playerTab:Section("Physical")
+	local playerTeamChangeSection = playerTab:Section("Team Change")
+	local playerTeleportationSection = playerTab:Section("Teleportation")
+	local playerOtherSection = playerTab:Section("Other")
+	
+-- Scripts Tab
+	local scriptsSection = scriptsTab:Section("Scripts")
+	
+-- Guns Tab
+	local gunsSpawnerSection = gunsTab:Section("Gun Spawner")
+	local gunsModSection = gunsTab:Section("Gun Modder")
+	
+-- Options Tab
+	local optionsSection = optionsTab:Section("Options")
+
+--
+--GUI
+--
+
+-- Player Section
+	playerPhysicalSection:Slider("Walk Speed < 0 - 500 >", 0, 500, function(currentValue)
+		localHuman.WalkSpeed = currentValue
+	end)
+	playerPhysicalSection:Slider("Jump Power < 0 - 500 >", 0, 500, function(currentValue)
+		localHuman.JumpPower = currentValue
+	end)
+	playerPhysicalSection:Button("Infinite Stamina")
+	for i,v in next, getgc() do 
+            if type(v) == "function" and getfenv(v).script and getfenv(v).script == localPlayer.Character.ClientInputHandler then 
+                for i2,v2 in next, debug.getupvalues(v) do 
+                    if type(v2) == "number" then 
+                        debug.setupvalue(v, i2, math.huge)
+                    end
+                end
+            end
+	    end
+    
+        playerTeleportationSection:Button("Prison Entrance", function()
+    local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+    player.CFrame = CFrame.new(505, 125, 2330)
+end)
+
+  playerTeleportationSection:Button("Grocery Shop", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-415, 56, 1750)
+  end)
+  
+  playerTeleportationSection:Button("Car Spawn", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-200, 56, 1880)
+  end)
+  
+  playerTeleportationSection:Button("Prison", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(777, 96, 2460)
+  end)
+  
+  playerTeleportationSection:Button("Secret Area", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-920, 96, 1990)
+  end)
+  
+  playerTeleportationSection:Button("Gas Station", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-520, 56, 1660)
+  end)
+  
+  playerTeleportationSection:Button("Criminal Base", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-910, 96, 2060)
+  end)
+  
+  playerTeleportationSection:Button("House Area", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(-230, 56, 2520)
+  end)
+  
+  playerTeleportationSection:Button("Police Cars", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(615, 101, 2515)
+  end)
+  
+  playerTeleportationSection:Button("Police Area", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(855, 101, 2297)
+  end)
+  
+  playerTeleportationSection:Button("Prison Cells", function()
+      local player = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart
+      player.CFrame = CFrame.new(915, 100, 2450)
+  end)
+
+	playerOtherSection:Button("Heal Self (experimental)", function()
+		localHuman.MaxHealth = math.huge
+		localHuman.Health = math.huge
+	end)
+	playerTeamChangeSection:Button("Guards", function()
+	local args = {
+    [1] = "Bright blue"
+    }
+    workspace.Remote.TeamEvent:FireServer(unpack(args))
+	end)
+		playerTeamChangeSection:Button("Inmates", function()
+	local args = {
+    [1] = "Bright orange"
+    }
+    workspace.Remote.TeamEvent:FireServer(unpack(args))
+	end)
+    	playerTeamChangeSection:Button("Neutral", function()
+	local args = {
+    [1] = "Medium stone grey"
+    }
+    workspace.Remote.TeamEvent:FireServer(unpack(args))
+	end)
+	playerTeamChangeSection:Button("Criminal", function()
+	local weld02 = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-919.958, 95.127, 2138.189)
+    wait(0.150)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(weld02)
+	end)
+
+	-- Scripts Section
+	scriptsSection:Button("Infinite Yield", function()
+		loadstring(game:HttpGetAsync(scripts['Infinite Yield']))()
+	end)
+	scriptsSection:Button("Dark Dex", function()
+		loadstring(game:HttpGetAsync(scripts['Dark Dex']))()
+	end)
+	scriptsSection:Button("Simple Spy", function()
+		loadstring(game:HttpGetAsync(scripts['Simple Spy']))()
+	end)
+	scriptsSection:Button("Nullware", function()
+		loadstring(game:HttpGetAsync(scripts['Nullware']))()
+	end)
+	scriptsSection:Button("Septex Admin", function()
+		loadstring(game:HttpGetAsync(scripts['Septex Admin']))()
+	end)
+	
+--Guns
+	gunsSpawnerSection:Button("M9",function()
+        local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["M9"].ITEMPICKUP
+        local Event = game:GetService("Workspace").Remote.ItemHandler
+        Event:InvokeServer(A_1)
+	end)
+    
+    gunsSpawnerSection:Button("Remington 870",function()
+        local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["Remington 870"].ITEMPICKUP
+        local Event = game:GetService("Workspace").Remote.ItemHandler
+        Event:InvokeServer(A_1)
+    end)
+    
+    gunsSpawnerSection:Button("AK-47",function()
+        local A_1 = game:GetService("Workspace")["Prison_ITEMS"].giver["AK-47"].ITEMPICKUP
+        local Event = game:GetService("Workspace").Remote.ItemHandler
+        Event:InvokeServer(A_1)
+    end)
+    
+     gunsSpawnerSection:Button("Key Card",function()
+local Toggles = {
+    autopickup = true -- Toggle here 
+}
+
+spawn(function()
+    game.StarterGui:SetCore("SendNotification", {
+                            Title = "Searching..."; 
+                            Text = "May take a while.";
+                            Icon = "rbxassetid://316094415"; 
+                            Duration = 5;})
+    while true do wait(0.001)
+        pcall(function()
+            if Toggles.autopickup == true then 
+                if game:GetService("Workspace")["Prison_ITEMS"].single:FindFirstChild("Key card",true) then 
+                    if game.Players.LocalPlayer.Backpack:FindFirstChild("Key card") then 
+                        
+                    else
+                        local ohInstance1 = workspace.Prison_ITEMS.single["Key card"].ITEMPICKUP
+                        workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+                        game.StarterGui:SetCore("SendNotification", {
+                            Title = "Success!"; 
+                            Text = "I've sniped a Key Card for you.";
+                            Icon = "rbxassetid://316094415"; 
+                            Duration = 5; 
+                        })
+                        end
+                    end 
+                end
+            end)
+        end
+    end)
+end)
+    
+    gunsModSection:Button("M9", function() 
+        local module = nil
+        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("M9") then
+            module = require(game:GetService("Players").LocalPlayer.Backpack["M9"].GunStates)
+        elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("M9") then
+            module = require(game:GetService("Players").LocalPlayer.Character["M9"].GunStates)
+        end
+        if module ~= nil then
+            module["MaxAmmo"] = math.huge
+            module["CurrentAmmo"] = math.huge
+            module["StoredAmmo"] = math.huge
+            module["FireRate"] = 0.15
+            module["Spread"] = 0
+            module["Range"] = math.huge
+            module["Bullets"] = 1
+            module["ReloadTime"] = 0.000001
+            module["AutoFire"] = true
+        end
+    end)
+    gunsModSection:Button("Remington 870", function()
+        local module = nil
+        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Remington 870") then
+            module = require(game:GetService("Players").LocalPlayer.Backpack["Remington 870"].GunStates)
+        elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Remington 870") then
+            module = require(game:GetService("Players").LocalPlayer.Character["Remington 870"].GunStates)
+        end
+        if module ~= nil then
+            module["MaxAmmo"] = math.huge
+            module["CurrentAmmo"] = math.huge
+            module["StoredAmmo"] = math.huge
+            module["FireRate"] = 0.15
+            module["Spread"] = 0
+            module["Range"] = math.huge
+            module["Bullets"] = 1
+            module["ReloadTime"] = 0.000001
+            module["AutoFire"] = true
+        end
+    end)
+    gunsModSection:Button("AK-47", function() 
+	    local module = nil
+        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("AK-47") then
+            module = require(game:GetService("Players").LocalPlayer.Backpack["AK-47"].GunStates)
+        elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("AK-47") then
+            module = require(game:GetService("Players").LocalPlayer.Character["AK-47"].GunStates)
+        end
+        if module ~= nil then
+            module["MaxAmmo"] = math.huge
+            module["CurrentAmmo"] = math.huge
+            module["StoredAmmo"] = math.huge
+            module["FireRate"] = 0.15
+            module["Spread"] = 0
+            module["Range"] = math.huge
+            module["Bullets"] = 1
+            module["ReloadTime"] = 0.000001
+            module["AutoFire"] = true
+        end
+    end)
+	
+-- Options Section
+	optionsSection:Button("Delete Gui Completely", function()
+		for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
+			if v.Name == "ThisIsLuxwareUi" then
+				v:Destroy() 
+			end
+		end
+	end)
+	
+    optionsSection:Button("Rejoin",function(bool)
+        shared.toggle = bool
+            local ts = game:GetService("TeleportService")
+        local p = game:GetService("Players").LocalPlayer
+    ts:Teleport(game.PlaceId, p)
+end)
+end
+
+-- Notifications Section
+if game.PlaceId == placeIds['Prison Life'] then
+	-- If execution fails
+	if pcall(PrisonLife) then
+		game.StarterGui:SetCore("SendNotification", {Title = "Halo Hub"; Text = "Enjoy!"; Icon = "rbxthumb://type=Asset&id=4914902918&w=150&h=150"; Duration = "30"; Button1 = "Close";})
+	else
+		game.StarterGui:SetCore("SendNotification", {Title = "Halo Hub"; Text = "There was an error when executing!"; Icon = "rbxthumb://type=Asset&id=4463096174&w=150&h=150"; Duration = "30"; Button1 = "Close";})
+	end
+end
